@@ -1,0 +1,79 @@
+{% include 'sellerheader.html' %}
+<!--==========================
+      Facts Section
+    ============================-->
+    <section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+<center>
+<form method="post" style="margin-top:5px" >
+	{% if data['updatefea'] %}
+		<br><br><br>
+
+		<h3 style="color: white"> Update Add Feature</h3>
+
+		<table class="table" style="width: 500px">
+		<tr>
+			<th>feature </th>
+			<td><input type="text" name="f" required=""class="form-control" value="{{ data['updatefea'][0]['feature'] }}"></td>
+		</tr>
+		
+		<tr>
+			<td align="center" colspan="2"><input type="submit" name="update" value="Update" class="btn btn-success"></td>
+		</tr>
+	</table>
+
+	{% else %}
+	<br><br><br>
+		<h3 style="color: white">  Add Feature</h3>
+
+		<table class="table" style="width: 500px">
+		<tr>
+			<th>feature</th>
+			<td><input type="text" name="f" required=""class="form-control"></td>
+		</tr>
+		
+		<tr>
+
+			<td align="center" colspan="2"><input type="submit" name="add" value="ADD" class="btn btn-success" ></td>
+		</tr>
+	</table>
+	{% endif %}
+</form>
+	<h3 style="color: white">  View Feature</h3>
+
+		<table class="table" style="width: 500px">
+	<tr>
+		<th>Feature_id</th>
+		<th>Feature</th>
+		<th>Status</th>
+
+<th>Status</th>
+	</tr>
+	{% for row in data['fea'] %}
+	<tr>
+		<td>Feature{{ row['feature_id'] }}</td>
+		<td>{{ row['feature'] }}</td>
+	<td><a class="btn btn-danger" href="?action=update&fid={{row['feature_id']}}&vid={{data['vid']}}">update</a></td>
+
+		{%if row['fstatus']=="active"%}
+		<td><a class="btn btn-success" href="?action=active&fid={{row['feature_id']}}&vid={{data['vid']}}">active</a></td>{%elif row['fstatus']=="inactive"%}
+		<td><a class="btn btn-success" href="?action=inactive&fid={{row['feature_id']}}&vid={{data['vid']}}">inactive</a></td>
+		{%else%}
+		<td>{{row['fstatus']}}</td>
+		{%endif%}
+	
+	</tr>
+	{% endfor %}
+</table>
+</center>
+
+</form>
+</center>
+</header>
+      </div>
+<br><br><br><br><br><br><br>
+    </section><!-- #facts -->
+
+{% include 'footer.html' %}

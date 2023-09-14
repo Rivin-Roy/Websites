@@ -1,0 +1,58 @@
+{% include 'buyerheader.html' %}
+
+
+<!--==========================
+      Facts Section
+    ============================-->
+    <section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+
+<center>
+	<form method="post" style="margin-top: 70px">
+
+
+
+		
+		<h3 style="color: white">View Booking</h3>
+		<table class="table" style="width: auto;">
+			<tr>
+				<th>Buyer Name</th>
+<th>Phone</th>
+
+				<th>Email</th>				<th>Vehicle </th>
+
+				<th>Amount</th>
+
+				<th>Status</th>
+
+			</tr>
+			{% for row in data['book']%}
+			<tr>
+				<td>{{row['firstname']}} {{row['lastname']}}</td>
+				<td>{{row['phone']}}</td>
+				<td>{{row['email']}}</td>					<td>{{row['vname']}}</td>
+				<td>{{row['amount']}}</td>
+				{% if row['bstatus']=="booked"%}
+				<td><a href="buyermakepayment?book_id={{row['booking_id']}}&price={{row['amount']}}&vehicle_id={{row['vehicle_id']}}">Make payment</a></td>
+			{%else%}
+				<td>{{row['bstatus']}}</td>
+			{%endif%}
+
+			</tr>
+			{% endfor%}
+		</table>
+
+</form>
+</center>
+
+
+</header>
+      </div>
+      <br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+
+    </section><!-- #facts -->
+
+{% include 'footer.html' %}

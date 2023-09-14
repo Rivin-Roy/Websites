@@ -1,0 +1,52 @@
+{% include 'adminheader.html' %}
+
+
+<!--==========================
+      Facts Section
+    ============================-->
+    <section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+
+<center>
+	<form method="post" style="margin-top: 70px">
+
+
+
+		
+		<h3 style="color: white">View Buyer</h3>
+		<table class="table" style="width: auto;">
+			<tr>
+				<th>Buyer Name</th>
+
+
+				<th>Place</th>
+
+				<th>Phone</th>
+
+				<th>Email</th>
+			</tr>
+				{% for row in data['buyer']%}
+			<tr>
+				<td>{{row['firstname']}} {{row['lastname']}}</td>
+				<td>{{row['place']}}</td>
+				<td>{{row['phone']}}</td>
+				<td>{{row['email']}}</td>
+			</tr>
+
+				{%endfor%}
+		</table>
+
+</form>
+</center>
+
+
+</header>
+      </div>
+      <br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+
+    </section><!-- #facts -->
+
+{% include 'footer.html' %}

@@ -1,0 +1,107 @@
+{% include 'adminheader.html' %}
+<!--==========================
+      Facts Section
+    ============================-->
+    <section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+<center>
+<form method="post" style="margin-top:5px" enctype="multipart/form-data">
+	{% if data['updatesubcategorys'] %}
+		<br><br><br>
+
+		<h3 style="color: white"> Update Add Subcategory</h3>
+
+		<table class="table" style="width: 500px">
+			<tr>
+				<th>category name</th>
+				<td>
+					<select name="cid" title="select category" class="form-control">
+						<option >select</option>
+						{% for row in data['categoryyy']%}
+						<option value="{{row['category_id']}}">{{ row['category'] }}</option>
+						{% endfor %}
+					</select>
+				</td>
+			</tr>		
+		<tr>
+			<th>Subcategory </th>
+			<td><input type="text" name="cate" required=""class="form-control" value="{{ data['updatesubcategorys'][0]['subcategory'] }}"></td>
+		</tr>
+		
+		<tr>
+			<td align="center" colspan="2"><input type="submit" name="update" value="Update" class="btn btn-success"></td>
+		</tr>
+	</table>
+
+	{% else %}
+	<br><br><br>
+		<h3 style="color: white">  Add Subcategory</h3>
+
+		<table class="table" style="width: 500px">
+<tr>
+				<th>category name</th>
+				<td>
+					<select name="cid" required="" title="select category" class="form-control">
+						<option required >select</option>
+						{% for row in data['categoryyy']%}
+						<option required  value="{{row['category_id']}}">{{ row['category'] }}</option>
+						{% endfor %}
+					</select>
+				</td>
+			</tr>		
+
+
+		<tr>
+
+			<th>Subcategory </th>
+			<td><input type="text" name="cate" required=""class="form-control"></td>
+		</tr>
+		
+		<tr>
+
+			<td align="center" colspan="2"><input type="submit" name="add" value="ADD" class="btn btn-success" ></td>
+		</tr>
+	</table>
+	{% endif %}
+</form>
+	<h3 style="color: white">  View Subcategory</h3>
+
+		<table class="table" style="width: 500px">
+	<tr>
+		<th>Subcategory_id</th>
+		<th>Categoryname</th>
+		<th>Subcategory</th>
+		<th>status</th>
+
+	</tr>
+	{% for row in data['subcat'] %}
+	<tr>
+		<td>Subcategory{{ row['subcategory_id'] }}</td>
+		<td>{{ row['category'] }}</td>
+		<td>{{ row['subcategory'] }}</td>
+<td><a class="btn btn-danger" href="?action=update&scid={{row['subcategory_id']}}">update</a></td>
+
+{%if row['scstatus']=="active"%}
+		<td><a class="btn btn-success" href="?action=active&scid={{row['subcategory_id']}}">active</a></td>
+		{% elif row['scstatus']=="inactive"%}
+		<td><a class="btn btn-success" href="?action=inactive&scid={{row['subcategory_id']}}">inactive</a></td>
+
+		{%else%}
+		<td>{{row['scstatus']}}</td>
+		{%endif%}
+			
+	</tr>
+	{% endfor %}
+</table>
+</center>
+
+</form>
+</center>
+</header>
+      </div>
+<br><br><br><br><br><br><br>
+    </section><!-- #facts -->
+
+{% include 'footer.html' %}

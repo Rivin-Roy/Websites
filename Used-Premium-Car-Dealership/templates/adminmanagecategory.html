@@ -1,0 +1,79 @@
+{% include 'adminheader.html' %}
+<!--==========================
+      Facts Section
+    ============================-->
+    <section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+<center>
+<form method="post" style="margin-top:5px" enctype="multipart/form-data">
+	{% if data['updatecategorys'] %}
+		<br><br><br>
+
+		<h3 style="color: white"> Update Add Category</h3>
+
+		<table class="table" style="width: 500px">
+		<tr>
+			<th>category name</th>
+			<td><input type="text" name="cate" required=""class="form-control" value="{{ data['updatecategorys'][0]['category'] }}"></td>
+		</tr>
+		
+		<tr>
+			<td align="center" colspan="2"><input type="submit" name="update" value="Update" class="btn btn-success"></td>
+		</tr>
+	</table>
+
+	{% else %}
+	<br><br><br>
+		<h3 style="color: white">  Add Category</h3>
+
+		<table class="table" style="width: 500px">
+		<tr>
+			<th>category name</th>
+			<td><input type="text" name="cate" required=""class="form-control"></td>
+		</tr>
+		
+		<tr>
+
+			<td align="center" colspan="2"><input type="submit" name="add" value="ADD" class="btn btn-success" ></td>
+		</tr>
+	</table>
+	{% endif %}
+</form>
+	<h3 style="color: white">  View Category</h3>
+
+		<table class="table" style="width: 500px">
+	<tr>
+		<th>Category_id</th>
+		<th>Categoryname</th>
+		<th>Status</th>
+
+	</tr>
+	{% for row in data['categorys'] %}
+	<tr>
+		<td>Category{{ row['category_id'] }}</td>
+		<td>{{ row['category'] }}</td>
+		<td><a class="btn btn-danger" href="?action=update&cid={{row['category_id']}}">update</a></td>
+
+		{%if row['cstatus']=="active"%}
+		<td><a class="btn btn-success" href="?action=active&cid={{row['category_id']}}">active</a></td>
+		{%elif row['cstatus']=="inactive"%}
+		<td><a class="btn btn-success" href="?action=inactive&cid={{row['category_id']}}">inactive</a></td>
+		{%else%}
+		<td>{{row['cstatus']}}</td>
+		{%endif%}
+			
+	</tr>
+	{% endfor %}
+</table>
+</center>
+
+</form>
+</center>
+</header>
+      </div>
+<br><br><br><br><br><br><br>
+    </section><!-- #facts -->
+
+{% include 'footer.html' %}

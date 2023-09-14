@@ -1,0 +1,58 @@
+{% include 'adminheader.html' %}
+
+
+<!--==========================
+      Facts Section
+    ============================-->
+    <section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+
+<center>
+	<form method="post" style="margin-top: 70px">
+
+
+
+		
+		<h3 style="color: white">View Seller</h3>
+		<table class="table" style="width: auto;">
+			<tr>
+				<th>Seller Name</th>
+
+
+				<th>Place</th>
+
+				<th>Phone</th>
+
+				<th>Email</th>
+				<th>Aadhar</th>
+			</tr>
+				{% for row in data['seller']%}
+			<tr>
+				<td>{{row['name']}}</td>
+				<td>{{row['place']}}</td>
+				<td>{{row['phone']}}</td>
+				<td>{{row['email']}}</td>
+				{% if row['astatus']=="pending" %}
+<td>				<a class="btn btn-success" href="verifyaadhar?seller_id={{row['seller_id']}}&aadhar={{row['aadharcard']}}">verify</a>
+</td>				{%else%}
+				<td>{{row['aadharcard']}}</td>
+				{%endif%}
+			</tr>
+
+				{%endfor%}
+		</table>
+
+</form>
+</center>
+
+
+</header>
+      </div>
+      <br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+
+    </section><!-- #facts -->
+
+{% include 'footer.html' %}

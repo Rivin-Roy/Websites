@@ -1,0 +1,38 @@
+{% include 'sellerheader.html' %}
+<!--==========================
+      Facts Section
+    ============================-->
+    <section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+<center>
+<form method="post" style="margin-top:5px" enctype="multipart/form-data">
+
+	<h3 style="color: white">  View Category</h3>
+
+		<table class="table" style="width: 500px">
+	<tr>
+		<th>Categoryname</th>
+
+	</tr>
+	{% for row in data['categorys'] %}
+	<tr>
+		<td>{{ row['category'] }}</td>
+		<td><a class="btn btn-danger" href="sellerviewsubcategory?category_id={{row['category_id']}}">view subcategory</a></td>
+
+		
+			
+	</tr>
+	{% endfor %}
+</table>
+</center>
+
+</form>
+</center>
+</header>
+      </div>
+<br><br><br><br><br><br><br>
+    </section><!-- #facts -->
+
+{% include 'footer.html' %}

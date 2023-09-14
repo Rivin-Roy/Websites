@@ -1,0 +1,45 @@
+{% include 'buyerheader.html' %}
+
+
+<!--==========================
+      Facts Section
+    ============================-->
+    <section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+
+<center>
+	<form method="post" style="margin-top: 70px">
+
+
+
+		
+		<h3 style="color: white">View Features</h3>
+			<table class="table" style="width: 500px">
+	<tr>
+		<th>Slno</th>
+		<th>Feature</th>
+
+	</tr>
+	{% for row in data['fea'] %}
+	<tr>
+		<td>{{ loop.index }}</td>
+		<td>{{ row['feature'] }}</td>
+		
+	</tr>
+	{% endfor %}
+</table>
+		
+</form>
+</center>
+
+
+</header>
+      </div>
+      <br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+
+    </section><!-- #facts -->
+
+{% include 'footer.html' %}

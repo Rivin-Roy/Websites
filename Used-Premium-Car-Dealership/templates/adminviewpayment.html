@@ -1,0 +1,47 @@
+{% include 'adminheader.html' %}
+
+
+<!--==========================
+      Facts Section
+    ============================-->
+    <section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+
+<center>
+	<form method="post" style="margin-top: 70px">
+
+
+
+		
+		<h3 style="color: white">View Payment</h3>
+		<table class="table" style="width: auto;">
+			<tr>
+				
+				<th>Amount</th>
+
+				<th>Status</th>
+
+			</tr>
+			{% for row in data['pay']%}
+			<tr>
+				<td>{{row['amount']}}</td>
+				<td>{{row['status']}}</td>
+				
+			</tr>
+			{% endfor%}
+		</table>
+
+</form>
+</center>
+
+
+</header>
+      </div>
+      <br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+
+    </section><!-- #facts -->
+
+{% include 'footer.html' %}

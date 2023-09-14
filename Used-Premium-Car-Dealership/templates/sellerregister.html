@@ -1,0 +1,73 @@
+{% include 'publicheader.html' %}
+	
+	<section id="intro" >
+    <div class="intro-container" >
+<!--       <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
+ -->
+        <!-- <ol class="carousel-indicators"></ol> -->
+
+        <div class="carousel-inner" role="listbox" >
+
+          <div class="carousel-item active" >
+            <div class="carousel-background"><img src="/static/img/intro-carousel/3.jpg" alt=""  style="height:1000px;" ></div>
+            <div class="carousel-container">
+              <div class="carousel-content">
+
+       <style type="text/css">
+       	.table{
+       		width:500px;
+       		color: white;
+       	}
+       </style>
+
+
+<center>
+
+<form method="post" style="">
+                <h2>Seller Registration</h2>
+
+
+<!-- 		<h1></h1>
+ -->		<table class="table">
+			<tr>
+				<th>Seller Name</th>
+				<td><input type="text" name="f" required class="form-control"></td>
+			</tr>
+			
+			<tr>
+				<th>Place</th>
+				<td><input type="text" name="pl" required class="form-control"></td>
+			</tr>
+			<tr>
+				<th>Phone</th>
+				<td><input type="text" name="ph" required class="form-control"></td>
+			</tr>
+			<tr>
+				<th>Aadhar No.</th>
+				<td><input type="text" pattern="[0-9]{12}" name="aa" required class="form-control"></td>
+			</tr>			<tr>
+				<th>Email</th>
+				<td><input type="text" name="e" required class="form-control"></td>
+			</tr>
+			
+			
+			<tr>
+				<th>Password</th>
+				<td><input type="password" name="p" required class="form-control"></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><input type="submit" name="register" value="REGISTER" class="btn btn-success"></td>
+			
+</tr></table></center></form>
+
+ </div>
+            </div>
+          </div>
+
+          
+      </div>
+    </div>
+  </section><!-- #intro -->
+
+
+{% include 'footer.html' %}

@@ -1,0 +1,77 @@
+{% include 'buyerheader.html' %}
+
+
+<!--==========================
+      Facts Section
+    ============================-->
+    <section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+
+<center>
+	<form method="post" style="margin-top: 70px">
+
+
+
+		
+		<h3 style="color: white">View Car</h3>
+		<table class="table" style="width: auto;">
+			<tr>
+				<th>Category </th>
+				<th>Subcategory </th>
+
+				<th>Vehicle Name</th>
+
+				<th>Description</th>
+
+				<th>Brand</th>
+
+				<th>Model</th>
+				<th>Year</th>
+
+				<th>KM</th>
+
+				<th>Price</th>
+
+				<th>Image</th>
+			</tr>
+			{% for row in data['car']%}
+			<tr>
+				<td>{{row['category']}}</td>
+				<td>{{row['subcategory']}}</td>
+				<td>{{row['vname']}}</td>
+				<td>{{row['vdescription']}}</td>
+				<td>{{row['brand']}}</td>
+				<td>{{row['model']}}</td>
+				<td>{{row['year']}}</td>
+				<td>{{row['km']}}</td>
+				<td>{{row['price']}}</td>
+				<td><img src="/{{row['image']}}"style="width: 50px;height: 50px"></td>
+				<td>
+				
+				<td><a class="btn btn-info" href="buyerviewfeature?vid={{row['vehicle_id']}}">View Features</a>
+				</td>
+				{%if row['status']=="active" %}
+				<td><a class="btn btn-warning" href="?action=book&vid={{row['vehicle_id']}}&price={{row['price']}}">Book</a>
+					{%else%}
+					<td>{{row['status']}}</td>
+				</td>
+				{% endif %}
+			</tr>
+
+			{%endfor%}
+		</table>
+
+</form>
+</center>
+
+
+</header>
+      </div>
+      <br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+
+    </section><!-- #facts -->
+
+{% include 'footer.html' %}

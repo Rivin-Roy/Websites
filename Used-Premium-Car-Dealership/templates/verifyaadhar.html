@@ -1,0 +1,43 @@
+{% include 'adminheader.html' %}
+<!--==========================
+      Facts Section
+    ============================-->
+    <section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+
+<center>
+           		<h3 style="color: white">Verification</h3>
+
+<form method="post">
+	<center>
+		<h2></h2>
+		<table class="table" style="width: 500px;color: white">
+			<tr>
+				<th>Aadhar Number</th>
+				<td><input type="text" name="otp" value="{{data['aadhar']}}" readonly="" required="" class="form-control"></td>
+			</tr>
+			
+			<tr>
+				<td align="center" colspan="2"><input type="submit" name="verify" value="verify" class="btn btn-success"></td>
+			</tr>
+			
+		</table>
+	</center>
+</form>
+
+</center>
+
+
+</header>
+      </div>
+      <br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+
+    </section><!-- #facts -->
+
+{% include 'footer.html' %}
+
+
+{% include 'footer.html' %}
